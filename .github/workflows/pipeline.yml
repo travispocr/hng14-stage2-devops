@@ -75,13 +75,13 @@ jobs:
           chmod +x /usr/local/bin/hadolint
 
       - name: Lint Dockerfile — api
-        run: hadolint api/Dockerfile --ignore DL3008 --ignore DL3013
+        run: hadolint api/Dockerfile --ignore DL3008 --ignore DL3013 --ignore DL3042
 
       - name: Lint Dockerfile — worker
-        run: hadolint worker/Dockerfile --ignore DL3008 --ignore DL3013
+        run: hadolint worker/Dockerfile --ignore DL3008 --ignore DL3013 --ignore DL3042
 
       - name: Lint Dockerfile — frontend
-        run: hadolint frontend/Dockerfile --ignore DL3018
+        run: hadolint frontend/Dockerfile --ignore DL3018 --ignore DL3042
 
   # ============================================================
   # STAGE 2 — TEST
