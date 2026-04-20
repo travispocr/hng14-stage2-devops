@@ -11,17 +11,21 @@ r = redis.Redis(
 
 shutdown = False
 
+
 def handle_sigterm(sig, frame):
     global shutdown
     shutdown = True
 
+
 signal.signal(signal.SIGTERM, handle_sigterm)
+
 
 def process_job(job_id):
     print(f"Processing job {job_id}")
     time.sleep(2)  # simulate work
     r.hset(f"job:{job_id}", "status", "completed")
     print(f"Done: {job_id}")
+
 
 while not shutdown:
     job = r.brpop(os.getenv("QUEUE_NAME", "jobs"), timeout=5)
