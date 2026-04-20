@@ -103,7 +103,7 @@ jobs:
         run: |
           cd api
           pip install -r requirements.txt
-          pip install pytest pytest-cov httpx
+          pip install pytest pytest-cov "httpx==0.27.0"
 
       - name: Run tests with coverage
         run: |
